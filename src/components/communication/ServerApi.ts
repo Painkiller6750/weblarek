@@ -2,7 +2,7 @@ import { Api } from '../base/Api';
 import { IApi, IOrderRequest, TOrderResponse, IOrderResultApi } from '../../types/index';
 
 export class ServerApi {
-  protected api: IApi;
+   protected api: IApi;
 
   constructor(api: Api) {
     this.api = api;
