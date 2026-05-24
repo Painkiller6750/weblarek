@@ -4,7 +4,7 @@ import { IApi, IOrderRequest, TOrderResponse, IOrderResultApi } from '../../type
 export class ServerApi {
    protected api: IApi;
 
-  constructor(api: Api) {
+  constructor(api: IApi) {
     this.api = api;
   }
 
