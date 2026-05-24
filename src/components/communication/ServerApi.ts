@@ -1,4 +1,4 @@
-import { Api } from '../base/Api';
+
 import { IApi, IOrderRequest, TOrderResponse, IOrderResultApi } from '../../types/index';
 
 export class ServerApi {
