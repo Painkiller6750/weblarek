@@ -5,6 +5,9 @@ export type TOrderResponse = {
     total: number;
 };
 
+export type IBuyerValidationErrors = Partial<Record<keyof IBuyer, string>>;
+
+
 export interface IApi {
     get<T extends object>(uri: string): Promise<T>;
     post<T extends object>(

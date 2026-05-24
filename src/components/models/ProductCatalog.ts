@@ -21,7 +21,7 @@ export class ProductCatalog {
     return this.products.find((product) => product.id === id);
   }
 
-  saveProduct(product: IProduct | null) {
+  saveProduct(product: IProduct) {
     this.selectedProduct = product;
   }
 
