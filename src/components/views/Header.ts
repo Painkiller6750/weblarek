@@ -20,4 +20,8 @@ export class Header extends Component<IHeader> {
       this.events.emit('shopping-cart:open');
     });
   }
+
+    set counter(value: number) {
+        this.counterElement.textContent = String(value);
+    }
 }
