@@ -1,35 +1,33 @@
 import { ensureElement } from "../../../utils/utils";
-import { IEvents } from "../../base/Events";
-import { Card, TCard } from "./Card";
+import { Card } from "./Card";
 
 export type TCardBasket = {
-  index?: number;
-  id?: string;
+    index?: number;
 };
 
 export class CardBasket extends Card<TCardBasket> {
-  protected indexElement: HTMLElement;
-  protected deleteButton: HTMLButtonElement;
-  protected _id?: string;
+    protected indexElement: HTMLElement;
+    protected deleteButton: HTMLButtonElement;
 
-  constructor(container: HTMLElement, protected events: IEvents) {
-    super(container);
-    
-    this.indexElement = ensureElement<HTMLElement>('.basket__item-index', this.container);
-    this.deleteButton = ensureElement<HTMLButtonElement>('.basket__item-delete', this.container);
+    constructor(container: HTMLElement, protected onDelete: (id: string) => void) {
+        super(container);
 
-    this.deleteButton.addEventListener('click', () => { 
-      if (this._id) {
-        this.events.emit('shopping-cart:remove', { id: this._id }); 
-      } 
-    }); 
-  }
+        this.indexElement = ensureElement<HTMLElement>('.basket__item-index', this.container);
+        this.deleteButton = ensureElement<HTMLButtonElement>('.basket__item-delete', this.container);
 
-  set index(value: number) {
-    this.indexElement.textContent = String(value);
-  }
+        this.deleteButton.addEventListener('click', () => {
+            const itemId = this.container.dataset.id;
+            if (itemId) {
+                onDelete(itemId);
+            }
+        });
+    }
 
-  set id(value: string) {
-    this._id = value;
-  }
+    setId(id: string): void {
+        this.container.dataset.id = id;
+    }
+
+    set index(value: number) {
+        this.indexElement.textContent = String(value);
+    }
 }

@@ -24,4 +24,9 @@ export class Header extends Component<IHeader> {
     set counter(value: number) {
         this.counterElement.textContent = String(value);
     }
+
+    addBasketButtonClick(handler: () => void): void {
+        this.basketButton.addEventListener('click', handler);
+    }
+
 }

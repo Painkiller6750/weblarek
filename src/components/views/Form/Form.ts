@@ -5,7 +5,12 @@ import { IEvents } from "../../base/Events";
 
 export interface IForm {
   valid: boolean;
+    address?: string;
+    email?: string;
+    phone?: string;
+    payment?: string;
   errors: string[];
+
 }
 
 export class Form extends Component<IForm> {

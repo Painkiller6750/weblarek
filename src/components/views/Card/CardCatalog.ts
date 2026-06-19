@@ -34,7 +34,9 @@ export class CardCatalog extends Card<TCardCatalog> {
       );
     }
   }
-  set image(value: string) {
-    this.setImage(this.imageElement, CDN_URL + value.slice(0, -3) + 'png', this.titleElement.textContent);
-  }
+    set image(value: string) {
+        const title = this.titleElement.textContent ?? '';
+        this.setImage(this.imageElement, CDN_URL + value.slice(0, -3) + 'png', title);
+    }
+
 }
